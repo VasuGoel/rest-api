@@ -60,3 +60,23 @@ app.post("/blogs", (req, res) => {
             res.redirect("/blogs");
     })
 });
+
+// Show Route
+app.get("/blogs/:id" , (req, res) => {
+    Blog.findById(req.params.id, (err, foundBlog) => {
+        if(err)
+            console.error(err);
+        else 
+            res.render("show", {blog: foundBlog});
+    })
+});
+
+// Edit Route
+app.get("/blogs/:id/edit", (req, res) => {
+    Blog.findById(req.params.id, (err, foundBlog) => {
+        if(err)
+            console.error(err);
+        else 
+            res.render("edit", {blog: foundBlog});
+    })
+});
