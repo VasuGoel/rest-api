@@ -1,0 +1,38 @@
+<% include ./partials/header %>
+
+<div class="ui main text container segment">
+    <div class="ui huge header margin-top">Edit Post</div>
+
+        <form class="ui form" action="/blogs/<%= blog._id %>/?_method=PUT" method="POST" style="display: inline">
+            <div class="field">
+                <label>Author</label>
+                <!--Instead of making the value for author available directly from req.body.author it will put it inside of an object, like so: req.body.blog.author -->
+                <input type="text" name="blog[author]" value="<%= blog.author %>">
+            </div>            
+            <div class="field">
+                <label>Title</label>
+                <input type="text" name="blog[title]" value="<%= blog.title %>">
+            </div>
+            <div class="field">
+                <label>Image</label>
+                <input type="text" name="blog[image]" value="<%= blog.image %>">
+            </div>
+            <div class="field">
+                <label>Body</label>
+                <textarea name="blog[body]"><%= blog.body %></textarea>
+            </div>
+            <div class="field">
+                <div class="ui checkbox">
+                    <input type="checkbox" required>
+                    <label>I'm aware that any spelling mistakes or errors in the above post might bring criticism towards me.</label>
+                </div>
+            </div>
+            <button class="ui button" type="submit">Update</button>
+        </form>
+        <a href="/blogs/<%= blog._id %>">
+           <button class="ui button">Cancel</button> 
+        </a>
+    </div>
+</div>
+
+<% include ./partials/footer %>
