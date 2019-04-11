@@ -43,3 +43,20 @@ app.get("/blogs", (req, res) => {
             res.render("index", {blogs: allBlogs})
     }) 
 });
+
+// New route
+app.get("/blogs/new", (req, res) => {
+    res.render("new");
+});
+
+// Create Route
+app.post("/blogs", (req, res) => {
+    // Sanitize the body of the blog
+    req.body.blog.body = req.sanitize(req.body.blog.body);
+    Blog.create(req.body.blog , (err, newBlog) => {
+        if(err)
+            console.error(err);
+        else
+            res.redirect("/blogs");
+    })
+});
