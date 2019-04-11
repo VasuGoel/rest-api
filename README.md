@@ -44,8 +44,8 @@ This project is licensed under the MIT License - see the [LICENSE](https://githu
 
 ## Acknowledgments
 
-https://techcrunch.com/
-https://medium.com/
+* https://techcrunch.com/
+* https://medium.com/
 
 
 
