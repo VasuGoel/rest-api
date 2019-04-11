@@ -116,7 +116,6 @@ app.delete("/blogs/:id", (req, res) => {
 //     })
 // });
 
-
 // Starts a UNIX socket and listens for connections on the given path
 app.listen(process.env.PORT, process.env.IP, () => {
     console.log("Server has started...");
