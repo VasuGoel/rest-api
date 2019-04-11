@@ -121,4 +121,3 @@ app.delete("/blogs/:id", (req, res) => {
 app.listen(process.env.PORT, process.env.IP, () => {
     console.log("Server has started...");
 });
-
