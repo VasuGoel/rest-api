@@ -1,0 +1,35 @@
+<% include ./partials/header %>
+
+<div class="ui main text container segment">
+    <div class="ui huge header margin-top">New Post</div>
+
+        <form class="ui form" action="/blogs" method="POST">
+            <div class="field">
+                <label>Author</label>
+                <!--Instead of making the value for author available directly from req.body.author it will put it inside of an object, like so: req.body.blog.author -->
+                <input type="text" name="blog[author]" placeholder="Author">
+            </div>            
+            <div class="field">
+                <label>Title</label>
+                <input type="text" name="blog[title]" placeholder="Title">
+            </div>
+            <div class="field">
+                <label>Image</label>
+                <input type="text" name="blog[image]" placeholder="Image-Url">
+            </div>
+            <div class="field">
+                <label>Body</label>
+                <textarea name="blog[body]"></textarea>
+            </div>
+            <div class="field">
+                <div class="ui checkbox">
+                    <input type="checkbox" required>
+                    <label>I'm aware that any spelling mistakes or errors in the above post might bring criticism towards me.</label>
+                </div>
+            </div>
+            <button class="ui button" type="submit">Submit</button>
+        </form>    
+    </div>
+</div>
+
+<% include ./partials/footer %>
