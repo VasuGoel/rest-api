@@ -1,0 +1,44 @@
+<% include ./partials/header %>
+
+<div class="ui main text piled container segment" style="margin: 5em">
+    <div class="ui basic segment" style="margin: 5px">
+        
+        <div class="ui huge header margin-top" style="margin-bottom: 15px"><%= blog.title %></div>
+        
+        <div class="ui basic segment">
+            <h2 class="ui sub header left floated"><%= blog.author %></h2>
+            <h2 class="ui sub header right floated"><%= blog.date.toDateString() %></h2>
+        </div>
+        <img class="ui medium centered big rounded image" src="<%= blog.image %>">
+
+        <h2 class="ui sub header" style="margin-bottom: 10px">
+            Post
+        </h2>
+        <!--NOTE - <%- %> actually evaluates whatever blog.body return runs it as code rather than just displaying the string-->
+        <!--With the help of these tags we can actually enter HTML inside the textarea and our show page will display the HTML rather than just rendering it as string (i.e. just printing out HTML tags instead of running them), which helps format text to be submitted inside form like StackOverflow, WordPress etc.-->
+        <!--But we need to make sure that a user is unable to run script tags in HTML to avoid them running JavaScript on our app.-->
+        <div class="content"><%- blog.body %></div>
+
+        <div class="ui basic segment" style="text-align:center">
+            <a  href="/blogs/<%= blog._id %>/edit">        
+                <button class="ui secondary button" style="width: 84.15px; margin-right: 15px">
+                    Edit
+                </button>
+            </a>
+            
+            <form action="/blogs/<%= blog._id %>/?_method=DELETE" method="POST" style="display: inline">       
+                <button class="ui secondary button">
+                    Delete
+                </button>
+            </form>
+        </div>
+        
+        <div class="ui basic segment">
+            <a class="ui left aligned" href="/blogs">Go back</a>
+            <a class="ui right aligned" style="float: right" href="/blogs/<%= blog._id %>/next">Next</a>
+        </div>
+        
+    </div>
+</div>
+
+<% include ./partials/footer %>
