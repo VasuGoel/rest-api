@@ -42,7 +42,7 @@ NPM
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](https://github.com/VasuGoel/RESTfulBlogApp/blob/master/LICENSE) file for details
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/VasuGoel/rest-api/blob/master/LICENSE) file for details
 
 ## Acknowledgments
 
