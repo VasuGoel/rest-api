@@ -80,3 +80,17 @@ app.get("/blogs/:id/edit", (req, res) => {
             res.render("edit", {blog: foundBlog});
     })
 });
+
+// Update Route
+app.put("/blogs/:id", (req, res) => {
+    // Sanitize the body of the blog
+    req.body.blog.body = req.sanitize(req.body.blog.body);
+    Blog.findByIdAndUpdate(req.params.id, req.body.blog, {'useFindAndModify': false}, (err, updatedBlog) => {
+        if(err)
+            console.error(err);
+        else  {
+            // Note: If we just do res.render("show", {blog: updatedBlog}), it'll call the url " /blogs/:id?_method=PUT " which doesn't display the updated blog though but if we visit " /blogs/:id " it'll be updated
+            res.redirect("/blogs/" + req.params.id);
+        }
+    });
+});
