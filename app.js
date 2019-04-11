@@ -28,3 +28,18 @@ const blogSchema = mongoose.Schema({
 const Blog = mongoose.model("Blog", blogSchema);
 
 
+// RESTful Routes
+
+app.get("/", (req, res) => {
+   res.redirect("/blogs"); 
+});
+
+// Index Route
+app.get("/blogs", (req, res) => {
+    Blog.find({}, (err, allBlogs) => {
+        if(err)
+            console.error(err);
+        else 
+            res.render("index", {blogs: allBlogs})
+    }) 
+});
