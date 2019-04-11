@@ -95,19 +95,13 @@ app.put("/blogs/:id", (req, res) => {
     });
 });
 
-
-// // NEXT ROUTE
-// app.get("/blogs/:id/next", (req, res) => {
-//     Blog.findById(req.params.id, (err, foundBlog) => {
-//         if(err)
-//             console.error(err);
-//         else 
-//             res.send(Blog.find({_id: {$gt: req.params.id}}).sort({_id: 1 }).limit(1));
-//     })
-// });
-
-
-// Starts a UNIX socket and listens for connections on the given path
-app.listen(process.env.PORT, process.env.IP, () => {
-    console.log("Server has started...");
+// Delete Route
+app.delete("/blogs/:id", (req, res) => {
+   Blog.findByIdAndRemove(req.params.id, {'useFindAndModify': false}, (err) => {
+        if(err)
+            console.error(err);
+        else 
+            res.redirect("/blogs");
+   })
 });
+
