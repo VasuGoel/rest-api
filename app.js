@@ -94,3 +94,13 @@ app.put("/blogs/:id", (req, res) => {
         }
     });
 });
+
+// Delete Route
+app.delete("/blogs/:id", (req, res) => {
+   Blog.findByIdAndRemove(req.params.id, {'useFindAndModify': false}, (err) => {
+        if(err)
+            console.error(err);
+        else 
+            res.redirect("/blogs");
+   })
+});
