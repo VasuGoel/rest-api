@@ -2,6 +2,8 @@
 
 A modern RESTful blog app to keep you up-to-date with the latest science and technology feeds. Editors, writers and people can contribute to the blog by posting new content on it or simply view the latest posts and catch up with the news!
 
+Representational State Transfer (REST) is a software architectural style that defines a set of constraints to be used for creating Web services. 
+
 ## Getting Started
 
 Start by either downloading the zip file or clone with HTTPS.
